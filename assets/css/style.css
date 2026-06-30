@@ -1,0 +1,770 @@
+/* ESTILO GERAL  */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: #000;
+  height: 100vh;
+}
+
+.interface{
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.flex{
+  display: flex;
+}
+
+.jrs-contato button{
+  padding: 10px 40px;
+  font-size: 25px;
+  font-weight: 600;
+  background-color: #00ff08;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+h2.titulo{
+  color: #fff;
+  font-size: 34px;
+  text-align: center;
+}
+
+h2.titulo span{
+  color: #00ff08;
+}
+
+button:hover, form .jrs-enviar input:hover{
+  box-shadow: 0px 0px 8px #00ff08;
+  transform: scale(1.15);
+}
+
+.logo img{
+  width: 160px;
+  height: 130px;
+}
+
+/* ESTILO DO CABEÇALHO */
+
+header{
+  padding: 0px 4%;
+}
+
+header > .interface{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+header a{
+  color: #7d7d7d;
+  text-decoration: none;
+/* MUDAR PADRÃO INLINE LEVEL PARA BLOCK, PARA O TRANSFORM FUNCIONAR */
+  display: inline-block;
+  transition: .3s;
+}
+
+/* HOVER = AÇÃO: MUDANÇA DE COR AO APONTAR */
+header a:hover{ 
+  color: #fff;
+/* ZOOM AO APONTAR, INLINE-BLOCK */
+  transform: scale(1.15);
+}
+
+.logo img{
+  width: 135px;
+  height: 105px;
+}
+
+header nav ul{
+  list-style-type: none;
+}
+
+header nav ul li{
+  display: inline;
+  padding: 0 40px;
+}
+
+
+
+/* ESTILO DO TOPO-DO-SITE */
+
+
+section.topo-do-site .flex{
+  padding: 40px 4%;
+  align-items: center;
+  gap: 10px;
+}
+
+.topo-do-site h1{
+  color: #fff;
+  font-size: 35px;
+  line-height: 35px;
+}
+
+.topo-do-site .txt-topo-site h1 span{
+  color: #00ff08;
+}
+
+.topo-do-site .txt-topo-site p{
+  color: #fff;
+  margin: 40px 0%;
+}
+
+.topo-do-site .img-topo-site{
+  position: relative;
+  /* NOME DA ANIMAÇÃO + TEMPO DE CONCLUSÃO + VELOCIDADE + DURAÇÃO DA ANIM. + VAI E VOLTA  */
+  animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+
+
+/* ANIMAÇÃO CSS; SO FUNCIONA COM POSITIONS RELATIVE */
+@keyframes flutuar{
+  0%{
+    top: 0;
+  }
+  100%{
+    top: 30px;
+  }
+}
+
+/* ESTILO SOBRE */
+
+section.sobre{
+  padding: 80px 4%;
+}
+
+section.sobre .flex{
+  align-items: center;
+  gap: 40px;
+}
+
+.sobre .txt-sobre{
+  color: #fff;
+}
+
+.sobre .txt-sobre h2{
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span{
+  color: #00ff08;
+  /* TRANSFORMA A CLASSE SPAN EM BLOCO PARA LINHA DE BAIXO */
+  display: block;
+}
+
+.sobre .txt-sobre p{
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.jrs-social button{
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00ff08;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .3s;  
+}
+
+
+/* HABILIDADES - ACCORDION INTERATIVO */
+
+section.habilidades{
+  padding: 80px 4%;
+}
+
+.habilidades-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 45px;
+}
+
+.habili-card{
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.habili-card:hover{
+  border-color: rgba(0, 255, 8, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 8, 0.08);
+}
+
+.habili-card.active{
+  border-color: rgba(0, 255, 8, 0.5);
+  background: rgba(0, 255, 8, 0.03);
+  box-shadow: 0 0 30px rgba(0, 255, 8, 0.1);
+}
+
+.habili-header{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 35px;
+  color: #fff;
+}
+
+.habili-header i:first-child{
+  font-size: 50px;
+  color: #00ff08;
+  transition: transform 0.3s ease;
+}
+
+.habili-header h3{
+  font-size: 22px;
+  flex: 1;
+}
+
+.habili-arrow{
+  font-size: 20px !important;
+  color: #7d7d7d !important;
+  transition: transform 0.4s ease, color 0.3s ease !important;
+}
+
+.habili-card.active .habili-arrow{
+  transform: rotate(180deg);
+  color: #00ff08 !important;
+}
+
+.habili-content{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.4s ease;
+  opacity: 0;
+  padding: 0 35px;
+}
+
+.habili-card.active .habili-content{
+  max-height: 200px;
+  opacity: 1;
+  padding: 0 35px 30px;
+}
+
+.habili-content p{
+  color: #b0b0b0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* ESTILO PROJETOS */
+
+.projetos{
+  padding: 80px 4%;
+  box-shadow: 0 0 40px 10px #ffffff25;
+}
+
+
+.projetos .flex{
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.titulo{
+  padding-bottom: 80px;
+}
+
+.projetos .interface .flex{
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.img-projeto-link{
+  display: block;
+  text-decoration: none;
+}
+
+.img-projeto{
+  width: 300px;
+  height: 400px;
+  background-size: cover;
+  background-position: 100% 0%;
+  transition: 4s;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+}
+
+.img-projeto:hover{
+  background-position: 100% 100%;
+}
+
+.orvelay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000096;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0;
+  transition: .5s;
+}
+
+.orvelay:hover{
+  opacity: 1;
+}
+
+/* ESTILO FORMULÁRIO */
+
+.formulario{
+  padding: 80px 4%;
+}
+
+form{
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+form input, form textarea{
+  width: 100%;
+  background-color: #474646fb;
+  border: 2px solid transparent;
+  outline: 0;
+  padding: 20px 15px;
+  border-radius: 15px;
+  color: #00ff08;
+  font-size: 18px;
+  transition: border-color 0.3s ease;
+}
+
+form textarea{
+  resize: none;  /* NÃO REDIMENSIONAR */
+  max-height: 200px;  
+} 
+
+form .jrs-enviar{
+  margin-top: 20px;
+  text-align: center;
+}
+
+form .jrs-enviar input{
+  width: 150px;
+  background-color: #00ff08;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  border: none !important;
+}
+
+/* ESTILO RODA PÉ */
+
+footer{
+  padding: 40px 4%;
+  box-shadow: 0 0 40px 10px #ffffff25;
+}
+
+footer .flex{
+  justify-content: space-between;
+}
+
+footer .line-footer{
+  padding: 20px 0;
+}
+
+.borda{
+  border-top: 2px solid #00ff08;
+}
+
+footer .line-footer p i{
+  color: #00ff08;
+  font-size: 25px;
+}
+
+footer .line-footer p{
+  color: #fff;
+}
+
+
+.logo-footer img{
+  width: 150px;
+}
+
+
+/* =============================================
+   MENU HAMBURGER
+   ============================================= */
+
+.menu-hamburger{
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 5px;
+}
+
+.menu-hamburger span{
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-hamburger.active span:nth-child(1){
+  transform: rotate(45deg) translate(6px, 7px);
+}
+
+.menu-hamburger.active span:nth-child(2){
+  opacity: 0;
+}
+
+.menu-hamburger.active span:nth-child(3){
+  transform: rotate(-45deg) translate(6px, -7px);
+}
+
+.menu-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.menu-overlay.active{
+  display: block;
+}
+
+body.menu-open{
+  overflow: hidden;
+}
+
+
+/* =============================================
+   VALIDAÇÃO DO FORMULÁRIO
+   ============================================= */
+
+.form-group{
+  position: relative;
+}
+
+.error-msg{
+  display: none;
+  color: #ff4444;
+  font-size: 13px;
+  margin-top: 5px;
+  padding-left: 15px;
+  animation: fadeInError 0.3s ease;
+}
+
+@keyframes fadeInError{
+  from{
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form input.input-error,
+form textarea.input-error{
+  border-color: #ff4444 !important;
+}
+
+form input.input-success,
+form textarea.input-success{
+  border-color: #00ff08 !important;
+}
+
+.success-msg{
+  display: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(0, 255, 8, 0.1);
+  border: 1px solid rgba(0, 255, 8, 0.3);
+  margin-top: 20px;
+  animation: fadeInSuccess 0.5s ease;
+}
+
+.success-msg.active{
+  display: block;
+}
+
+.success-msg i{
+  font-size: 40px;
+  color: #00ff08;
+  margin-bottom: 10px;
+}
+
+.success-msg p{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@keyframes fadeInSuccess{
+  from{
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =============================================
+   RESPONSIVIDADE
+   ============================================= */
+
+/* Tablet Landscape */
+@media (max-width: 1024px){
+  .interface{
+    max-width: 960px;
+  }
+
+  .topo-do-site h1{
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .img-projeto{
+    width: 300px;
+    height: 380px;
+  }
+
+  header nav ul li{
+    padding: 0 20px;
+  }
+}
+
+/* Tablet Portrait / Mobile Grande */
+@media (max-width: 768px){
+  .menu-hamburger{
+    display: flex;
+  }
+
+  .menu-desktop{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    background: #111;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.4s ease;
+    border-left: 1px solid rgba(0, 255, 8, 0.2);
+  }
+
+  .menu-desktop.active{
+    right: 0;
+  }
+
+  .menu-desktop ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .menu-desktop ul li{
+    display: block;
+    padding: 0;
+  }
+
+  .menu-desktop ul li a{
+    font-size: 20px;
+  }
+
+  header > .interface{
+    gap: 10px;
+  }
+
+  .jrs-contato button{
+    font-size: 18px;
+    padding: 8px 25px;
+  }
+
+  section.topo-do-site .flex{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .topo-do-site .img-topo-site img{
+    max-width: 300px;
+  }
+
+  .topo-do-site h1{
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  section.sobre .flex{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre .img-sobre img{
+    max-width: 300px;
+  }
+
+  .sobre .txt-sobre h2{
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .habilidades-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projetos .flex{
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .img-projeto-link{
+    width: calc(50% - 15px);
+  }
+
+  .img-projeto{
+    width: 100%;
+    height: 350px;
+  }
+
+  form{
+    max-width: 90%;
+  }
+
+  footer .flex{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  h2.titulo{
+    font-size: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .topo-do-site h1{
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .topo-do-site .img-topo-site img{
+    max-width: 220px;
+  }
+
+  .sobre .txt-sobre h2{
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .sobre .img-sobre img{
+    max-width: 220px;
+  }
+
+  .habilidades-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .habili-header{
+    padding: 22px 20px;
+    gap: 15px;
+  }
+
+  .habili-header i:first-child{
+    font-size: 36px;
+  }
+
+  .habili-header h3{
+    font-size: 18px;
+  }
+
+  .habili-content{
+    padding: 0 20px;
+  }
+
+  .habili-card.active .habili-content{
+    padding: 0 20px 25px;
+  }
+
+  .projetos .flex{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-projeto-link{
+    width: 100%;
+  }
+
+  .img-projeto{
+    width: 100%;
+    min-width: unset;
+    height: 300px;
+  }
+
+  form{
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  h2.titulo{
+    font-size: 24px;
+  }
+
+  .jrs-contato button{
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  footer .line-footer p{
+    font-size: 14px;
+  }
+
+  .jrs-social button{
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+}
